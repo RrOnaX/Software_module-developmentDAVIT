@@ -1,0 +1,72 @@
+https://github.com/RrOnaX/lesson_03 - домашнее задание 2
+http://algorthimization-course-vvodnoe.vercel.app/mdk0101-razrabotka-modulei/lessons/02-struktura-python-proekta/08-domashnee-zadanie.html
+
+# Домашнее задание №2 — lesson_03
+
+* **Студент:** RrOnaX
+* **Назначение:** Расширение утилиты Student Tools функциями поиска минимальной и максимальной оценки с выводом через Rich и тестированием на pytest.
+* **Версия Python:** 3.12.2
+
+## Структура и обязанности файлов
+* `lesson_03/app/services/calculator.py` — вычисление среднего, минимального и максимального значений (Бизнес-логика).
+* `lesson_03/app/utils/formatter.py` — стилизация отчета с помощью стилей Rich (Презентационная логика).
+* `lesson_03/app/main.py` — точка входа, координирующая расчеты и вывод в консоль.
+* `lesson_03/tests/test_calculator.py` — юнит-тесты на базе фреймворка pytest.
+
+## Команды управления проектом (для Windows)
+
+1. **Создание виртуального окружения:**
+   ```bash
+   python -m venv .venv
+   ```
+2. **Активация окружения:**
+   * В CMD: `.venv\Scripts\activate.bat`
+   * В PowerShell: `.venv\Scripts\Activate.ps1`
+3. **Установка зависимостей:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Запуск программы:**
+   ```bash
+   python -m app.main
+   ```
+5. **Запуск автоматических тестов:**
+   ```bash
+   python -m pytest -v
+   ```
+
+## Ожидаемый результат работы `main.py`
+```text
+Средний результат: 4.40
+Минимальная оценка: 3
+Максимальная оценка: 5
+```
+
+## Информация о системном окружении
+* **Версия Python:** `3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]`
+* **Реальный вывод sys.executable:** `C:\Users\Сын\Desktop\lesson_03\.venv\Scripts\python.exe`
+
+## Проверка из чистой копии (Воспроизводимость)
+Проект был клонирован в отдельную чистую директорию, окружение развернуто с нуля по инструкциям выше. 
+Результат выполнения команды `python -m pytest -v`:
+```text
+============================= test session starts =============================
+collected 7 items
+
+tests/test_calculator.py::test_average PASSED                            [ 14%]
+tests/test_calculator.py::test_average_empty PASSED                      [ 28%]
+tests/test_calculator.py::test_format PASSED                             [ 42%]
+tests/test_calculator.py::test_min_normal PASSED                         [ 57%]
+tests/test_calculator.py::test_min_empty PASSED                          [ 71%]
+tests/test_calculator.py::test_max_normal PASSED                         [ 85%]
+tests/test_calculator.py::test_max_empty PASSED                         [100%]
+
+============================== 7 passed in 0.03s ==============================
+```
+
+## Почему виртуальное окружение `.venv` не входит в репозиторий?
+Папка `.venv` содержит в себе изолированный интерпретатор Python и копии установленных библиотек, скомпилированные под конкретную операционную систему и архитектуру процессора текущего компьютера. 
+Если загрузить её в репозиторий:
+1. Она займет много места (сотни мегабайт ненужных файлов).
+2. На другом компьютере или другой ОС (например, при переносе с Windows на macOS) эти бинарные файлы просто откажутся работать.
+Вместо переноса "тяжелого" окружения используется текстовый файл `requirements.txt`. Он позволяет за несколько секунд воссоздать точно такое же рабочее окружение на любой другой машине.
